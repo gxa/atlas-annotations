@@ -20,4 +20,4 @@ property.refseq=refseq_peptide
 property.symbol=wikigene_name
 property.uniprot=uniprotsptrembl
 property.symbol=external_gene_name
-
+chromosomeName=1,2,3,4,5,6,7,8,9,scaffold_10,scaffold_11,scaffold_12,scaffold_13,scaffold_14,scaffold_16,scaffold_18,scaffold_20,scaffold_22,scaffold_24,scaffold_26,scaffold_27,scaffold_29,scaffold_31,scaffold_33,scaffold_37,scaffold_43,scaffold_44,scaffold_46,scaffold_47,scaffold_52,scaffold_54,scaffold_61,scaffold_62,scaffold_63,scaffold_65,scaffold_75,scaffold_78,scaffold_96,scaffold_110,scaffold_112,scaffold_118,scaffold_119,scaffold_140,scaffold_143,scaffold_168,scaffold_175,scaffold_209,scaffold_223,scaffold_226,scaffold_236,scaffold_237,scaffold_253,scaffold_255,scaffold_261,scaffold_266,scaffold_288,scaffold_290,scaffold_294,scaffold_298,scaffold_306,scaffold_318,scaffold_319,scaffold_326,scaffold_329,scaffold_339,scaffold_341,scaffold_366,scaffold_370,scaffold_373,scaffold_382,scaffold_383,scaffold_409,scaffold_452,scaffold_462,scaffold_465,scaffold_487,scaffold_498

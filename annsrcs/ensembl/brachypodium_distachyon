@@ -7,7 +7,6 @@ datasetName=bdistachyon_eg_gene
 mySqlDbName=brachypodium_distachyon
 mySqlDbUrl=mysql-eg-mirror.ebi.ac.uk:4157
 types=ensgene,enstranscript,ensprotein
-chromosomeName=1,2,3,4,5
 property.gene_biotype=gene_biotype
 property.description=description
 property.ensgene=ensembl_gene_id
@@ -23,4 +22,4 @@ property.interproterm=interpro_description
 property.refseq=refseq_peptide
 property.symbol=external_gene_name
 property.uniprot=uniprotsptrembl,uniprotswissprot
-
+chromosomeName=1,2,3,4,5,GG745429.1,GG745431.1,GG745434.1,GG745435.1,GG745436.1,GG745437.1,GG745439.1,GG745440.1,GG745441.1,GG745444.1,GG745445.1,GG745450.1,GG745451.1,GG745458.1,GG745459.1,GG745471.1,GG745491.1,GG745499.1
