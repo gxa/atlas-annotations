@@ -32,14 +32,16 @@ object AtlasSpeciesFactory {
         "metazoa" -> "animals",
         "fungi" -> "fungi",
         "parasite" -> "animals",
-        "plants" -> "plants")
+        "plants" -> "plants",
+        "protists" -> "protists")
 
   val resourcesMap =
     Map("genome_browser" ->  Map("ensembl" -> List("http://www.ensembl.org/"),
                                   "metazoa" -> List("http://metazoa.ensembl.org/"),
                                   "fungi" -> List("http://fungi.ensembl.org/"),
                                   "parasite" -> List("http://parasite.wormbase.org/"),
-                                  "plants" -> List("http://plants.ensembl.org/", "http://ensembl.gramene.org/"))
+          						  "plants" -> List("http://plants.ensembl.org/", "http://ensembl.gramene.org/"),
+                                  "protists" -> List("http://protists.ensembl.org"))
     )
 
   def create(annotationSource: AnnotationSource): Either[String, AtlasSpecies] = {
