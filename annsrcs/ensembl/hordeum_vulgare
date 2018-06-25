@@ -21,4 +21,4 @@ property.refseq=refseq_peptide
 property.symbol=external_gene_name
 property.uniprot=uniprotsptrembl,uniprotswissprot
 arrayDesign.A-AFFY-31=affy_barley1
-chromosomeName=chr1H,chr2H,chr3H,chr4H,chr5H,chr6H,chr7H,chrUn,Pt
+#chromosomeName=chr1H,chr2H,chr3H,chr4H,chr5H,chr6H,chr7H,chrUn,Pt

@@ -20,4 +20,4 @@ property.interproterm=interpro_description
 property.refseq=refseq_peptide
 property.symbol=external_gene_name
 property.uniprot=uniprotsptrembl,uniprotswissprot
-chromosomeName=0,1,2,3,4,5,6,7,8,9,10,11,12
+#chromosomeName=0,1,2,3,4,5,6,7,8,9,10,11,12
