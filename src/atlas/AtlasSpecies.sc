@@ -1,4 +1,4 @@
-import $ivy.`org.json4s:json4s-native_2.11:3.5.0`
+import $ivy.`org.json4s:json4s-native_2.12:3.5.0`
 import org.json4s._
 import org.json4s.native.JsonMethods._
 import org.json4s.JsonDSL._
