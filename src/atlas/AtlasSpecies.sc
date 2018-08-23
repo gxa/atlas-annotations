@@ -10,15 +10,23 @@ import java.nio.file.{Paths, Files}
 import java.nio.charset.StandardCharsets
 import ammonite.ops._
 
-case class AtlasSpecies(species: String, defaultQueryFactorType: String, kingdom: String, resources: List[(String, List[String])]) {
+case class AtlasSpecies(species: String, defaultQueryFactorType: String, kingdom: String, resources: List[(String, List[(String, String)])]) {
   val json =
     ("name" -> this.species) ~
     ("defaultQueryFactorType" -> this.defaultQueryFactorType) ~
     ("kingdom" -> this.kingdom) ~
     ("resources" ->
-      this.resources.map { case (rType, rValues) =>
-        (("type" -> rType) ~
-         ("urls" -> rValues))})
+      this.resources.flatMap { case (rType, rValues) =>
+        rValues.map {
+          case (name,url)
+          => (
+            ("type" -> rType) ~
+            ("name" -> name)  ~
+            ("url" -> url)
+          )
+        }
+      }
+    )
 
   def toJson: String = pretty(render(json))
 }
@@ -36,13 +44,15 @@ object AtlasSpeciesFactory {
         "protists" -> "protists")
 
   val resourcesMap =
-    Map("genome_browser" ->  Map("ensembl" -> List("http://www.ensembl.org/"),
-                                  "metazoa" -> List("http://metazoa.ensembl.org/"),
-                                  "fungi" -> List("http://fungi.ensembl.org/"),
-                                  "parasite" -> List("http://parasite.wormbase.org/"),
-          						  "plants" -> List("http://plants.ensembl.org/", "http://ensembl.gramene.org/"),
-                                  "protists" -> List("http://protists.ensembl.org"))
-    )
+    Map("genome_browser" ->
+      Map("ensembl" -> List(("Ensembl", "http://www.ensembl.org/")),
+          "metazoa" -> List(("Ensembl Genomes", "http://metazoa.ensembl.org/")),
+          "fungi" -> List(("Ensembl Genomes", "http://fungi.ensembl.org/")),
+          "parasite" -> List(("Wormbase ParaSite", "http://parasite.wormbase.org/")),
+          "plants" -> List(("Gramene", "http://ensembl.gramene.org/"),("Ensembl Genomes", "http://plants.ensembl.org/")),
+          "protists" -> List(("Ensembl Genomes", "http://protists.ensembl.org/"))
+        )
+      )
 
   def create(annotationSource: AnnotationSource): Either[String, AtlasSpecies] = {
     AnnotationSource.getValues(annotationSource, List("databaseName", "mySqlDbName"))
@@ -53,7 +63,11 @@ object AtlasSpeciesFactory {
           defaultQueryFactorTypesMap(databaseName),
           kingdomMap(databaseName),
           resourcesMap.toList.map {
-            case (key, values) => (key, values(databaseName).map(_ + mySqlDbName.capitalize))
+            case (key, values) => (key,
+              values(databaseName).map {
+                case(name, url) => (name, url + mySqlDbName.capitalize)
+              }
+            )
           }
         )
     }
