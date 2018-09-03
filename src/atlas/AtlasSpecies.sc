@@ -45,12 +45,12 @@ object AtlasSpeciesFactory {
 
   val resourcesMap =
     Map("genome_browser" ->
-      Map("ensembl" -> List(("Ensembl", "http://www.ensembl.org/")),
-          "metazoa" -> List(("Ensembl Genomes", "http://metazoa.ensembl.org/")),
-          "fungi" -> List(("Ensembl Genomes", "http://fungi.ensembl.org/")),
-          "parasite" -> List(("Wormbase ParaSite", "http://parasite.wormbase.org/")),
-          "plants" -> List(("Gramene", "http://ensembl.gramene.org/"),("Ensembl Genomes", "http://plants.ensembl.org/")),
-          "protists" -> List(("Ensembl Genomes", "http://protists.ensembl.org/"))
+      Map("ensembl" -> List(("Ensembl", "https://www.ensembl.org/")),
+          "metazoa" -> List(("Ensembl Genomes", "https://metazoa.ensembl.org/")),
+          "fungi" -> List(("Ensembl Genomes", "https://fungi.ensembl.org/")),
+          "parasite" -> List(("Wormbase ParaSite", "https://parasite.wormbase.org/")),
+          "plants" -> List(("Gramene", "http://ensembl.gramene.org/"),("Ensembl Genomes", "https://plants.ensembl.org/")),
+          "protists" -> List(("Ensembl Genomes", "https://protists.ensembl.org/"))
         )
       )
 
