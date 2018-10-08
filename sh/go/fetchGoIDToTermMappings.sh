@@ -2,8 +2,12 @@
 # This script retrieves the latest mapping between GO ids and terms
 # Author: rpetry@ebi.ac.uk, wbazant@ebi.ac.uk
 set -euo pipefail
+
 PROJECT_ROOT=`dirname $0`/../..
 export JAVA_OPTS=-Xmx3000M
+
+GET_GO_DEPTHS=${GET_GO_DEPTHS:-"yes"}
+
 IFS="
 "
 outputDir=$1
@@ -62,7 +66,12 @@ from
 group by go_id, ancestor_id;" | sqlplus goselect/selectgo@goapro | grep '^GO:'  | sort -t$'\t' -rk2,2  | awk -F"\t" '{ print $1"\t"$2+1 }' | sort -buk1,1
 }
 
-get_ontology_id2Depth_mappings > $outputDir/goIDToDepth.tsv
+if [ $GET_GO_DEPTH == "yes" ]; then
+  get_ontology_id2Depth_mappings > $outputDir/goIDToDepth.tsv
+else
+  # write file with just zero depths
+
+fi
 
 
 # Append Plant Ontology terms at the end of the Gene Ontology file (Ensembl provides Plant Ontology (PO) and Gene Ontology (GO) terms - as GO terms)
