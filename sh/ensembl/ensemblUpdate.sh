@@ -54,12 +54,12 @@ echo "Fetching the synonyms from biomart databases..."
 $PROJECT_ROOT/sh/ensembl/fetchGeneSynonyms.sh
 
 echo "Merge all individual Ensembl property files into matrices"
-for species in $(find -L ${ATLAS_PROD}/bioentity_properties/ensembl -name '*tsv' -type f | xargs -n 1 basename | awk -F"." '{print $1}' | sort -u ); do
+for species in $(find -L $PATH_BIOENTITY_PROPERTIES/ensembl -name '*tsv' -type f | xargs -n 1 basename | awk -F"." '{print $1}' | sort -u ); do
     for bioentity in ensgene enstranscript ensprotein; do
-        mergedFile=${ATLAS_PROD}/bioentity_properties/annotations/ensembl/$species.$bioentity.tsv
+        mergedFile=$PATH_BIOENTITY_PROPERTIES/annotations/ensembl/$species.$bioentity.tsv
         [[ -s $mergedFile ]] \
         || $PROJECT_ROOT/sh/ensembl/mergePropertiesIntoMatrix.pl \
-            -indir ${ATLAS_PROD}/bioentity_properties/ensembl \
+            -indir $PATH_BIOENTITY_PROPERTIES/ensembl \
             -species $species -bioentity $bioentity \
         > $mergedFile
     done
@@ -67,50 +67,50 @@ done
 
 # Do the same for WBPS.
 echo "Merge all individual WBPS property files into matrices"
-for species in $(find -L ${ATLAS_PROD}/bioentity_properties/wbps -name '*tsv' -type f | xargs -n 1 basename | awk -F"." '{print $1}' | sort -u ); do
+for species in $(find -L $PATH_BIOENTITY_PROPERTIES/wbps -name '*tsv' -type f | xargs -n 1 basename | awk -F"." '{print $1}' | sort -u ); do
     for bioentity in wbpsgene wbpsprotein wbpstranscript; do
-        mergedFile=${ATLAS_PROD}/bioentity_properties/annotations/wbps/$species.$bioentity.tsv
+        mergedFile=$PATH_BIOENTITY_PROPERTIES/annotations/wbps/$species.$bioentity.tsv
         [[ -s $mergedFile ]] \
         || $PROJECT_ROOT/sh/ensembl/mergePropertiesIntoMatrix.pl \
-            -indir ${ATLAS_PROD}/bioentity_properties/wbps \
+            -indir $PATH_BIOENTITY_PROPERTIES/wbps \
             -species $species -bioentity $bioentity \
         > $mergedFile
     done
 done
 
 # Create files that will be loaded into the database.
-echo "Generate ${ATLAS_PROD}/bioentity_properties/bioentityOrganism.dat file"
-$PROJECT_ROOT/sh/prepare_bioentityorganisms_forloading.sh ${ATLAS_PROD}/bioentity_properties
+echo "Generate $PATH_BIOENTITY_PROPERTIES/bioentityOrganism.dat file"
+$PROJECT_ROOT/sh/prepare_bioentityorganisms_forloading.sh $PATH_BIOENTITY_PROPERTIES
 
 # Apply sanity test
-size=`wc -l ${ATLAS_PROD}/bioentity_properties/bioentityOrganism.dat | awk '{print $1}'`
+size=`wc -l $PATH_BIOENTITY_PROPERTIES/bioentityOrganism.dat | awk '{print $1}'`
 if [ "$size" -lt 200 ]; then
     echo "ERROR: Something went wrong with populating bioentityOrganism.dat file - should have more than 200 rows"
     exit 1
 fi
 
 
-echo "Generate ${ATLAS_PROD}/bioentity_properties/bioentityName.dat file"
+echo "Generate $PATH_BIOENTITY_PROPERTIES/bioentityName.dat file"
 echo "... Generate miRBase component"
-rm -rf ${ATLAS_PROD}/bioentity_properties/mirbase/miRNAName.dat
+rm -rf $PATH_BIOENTITY_PROPERTIES/mirbase/miRNAName.dat
 $PROJECT_ROOT/sh/mirbase/prepare_mirbasenames_forloading.sh
 
 echo "... Generate Ensembl component"
 find -L $PATH_BIOENTITY_PROPERTIES/ensembl -name '*ensgene.symbol.tsv' \
 | xargs $PROJECT_ROOT/sh/ensembl/prepare_names_for_loading.sh $PATH_BIOENTITY_PROPERTIES/bioentityOrganism.dat \
-> ${ATLAS_PROD}/bioentity_properties/ensembl/geneName.dat
+> $PATH_BIOENTITY_PROPERTIES/ensembl/geneName.dat
 
 echo "... Generate WBPS component"
 find -L $PATH_BIOENTITY_PROPERTIES/wbps -name '*wbpsgene.symbol.tsv' \
 | xargs $PROJECT_ROOT/sh/ensembl/prepare_names_for_loading.sh $PATH_BIOENTITY_PROPERTIES/bioentityOrganism.dat \
-> ${ATLAS_PROD}/bioentity_properties/wbps/wbpsgeneName.dat
+> $PATH_BIOENTITY_PROPERTIES/wbps/wbpsgeneName.dat
 
 echo "Merge miRNAName.dat, geneName.dat and wbpsgeneName.dat into bioentityName.dat"
-cp ${ATLAS_PROD}/bioentity_properties/mirbase/miRNAName.dat ${ATLAS_PROD}/bioentity_properties/bioentityName.dat
-cat ${ATLAS_PROD}/bioentity_properties/ensembl/geneName.dat >> ${ATLAS_PROD}/bioentity_properties/bioentityName.dat
-cat ${ATLAS_PROD}/bioentity_properties/wbps/wbpsgeneName.dat >> ${ATLAS_PROD}/bioentity_properties/bioentityName.dat
+cp $PATH_BIOENTITY_PROPERTIES/mirbase/miRNAName.dat $PATH_BIOENTITY_PROPERTIES/bioentityName.dat
+cat $PATH_BIOENTITY_PROPERTIES/ensembl/geneName.dat >> $PATH_BIOENTITY_PROPERTIES/bioentityName.dat
+cat $PATH_BIOENTITY_PROPERTIES/wbps/wbpsgeneName.dat >> $PATH_BIOENTITY_PROPERTIES/bioentityName.dat
 # Apply sanity test
-size=`wc -l ${ATLAS_PROD}/bioentity_properties/bioentityName.dat | awk '{print $1}'`
+size=`wc -l $PATH_BIOENTITY_PROPERTIES/bioentityName.dat | awk '{print $1}'`
 if [ "$size" -lt 1000000 ]; then
     echo "ERROR: Something went wrong with populating bioentityName.dat file - should have more than 1mln rows, only had $size"
     exit 1
@@ -127,13 +127,13 @@ if [[ -n "$nonuniqueArrayDesignFiles" ]] ; then
     exit 1
 fi
 
-echo "Generate ${ATLAS_PROD}/bioentity_properties/designelementMapping.dat file"
+echo "Generate $PATH_BIOENTITY_PROPERTIES/designelementMapping.dat file"
 find -L $PATH_BIOENTITY_PROPERTIES/array_designs -name '*A-*.tsv' \
     | xargs $PROJECT_ROOT/sh/prepare_array_designs_for_loading.sh  \
-    > ${ATLAS_PROD}/bioentity_properties/designelementMapping.dat
+    > $PATH_BIOENTITY_PROPERTIES/designelementMapping.dat
 
 # Apply sanity test
-size=`wc -l ${ATLAS_PROD}/bioentity_properties/designelementMapping.dat | awk '{print $1}'`
+size=`wc -l $PATH_BIOENTITY_PROPERTIES/designelementMapping.dat | awk '{print $1}'`
 if [ "$size" -lt 2000000 ]; then
     echo "ERROR: Something went wrong with populating designelementMapping.dat file - should have more than 2mln rows"
     exit 1
