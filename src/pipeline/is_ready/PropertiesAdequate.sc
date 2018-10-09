@@ -11,7 +11,7 @@ import $file.^.^.Directories
 import ammonite.ops._
 
 def arrayDesignsBackfilled = {
-    ls (Directories.ATLAS_PROD / "bioentity_properties" / "array_designs" / "backfill" )
+    ls (Directories.PATH_BIOENTITY_PROPERTIES / "array_designs" / "backfill" )
     .map(_.name.split("\\.").toList)
     .collect {
         case _ :: arrayDesignAccession :: "tsv" :: List()
