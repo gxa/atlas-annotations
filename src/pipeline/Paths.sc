@@ -29,8 +29,8 @@ def fileNameFor(atlasProperty: AtlasProperty) = {
 def directoryFor(atlasProperty: AtlasProperty) = {
     atlasProperty match {
       case AtlasBioentityProperty(_,_,_)
-        => ATLAS_PROD / "bioentity_properties" / atlasProperty.annotationSource.segments.reverse.apply(1)
+        => PATH_BIOENTITY_PROPERTIES / atlasProperty.annotationSource.segments.reverse.apply(1)
       case AtlasArrayDesign(_, _)
-        => ATLAS_PROD / "bioentity_properties" / "array_designs" / "current"
+        => PATH_BIOENTITY_PROPERTIES / "array_designs" / "current"
     }
 }

@@ -5,15 +5,6 @@ if (!(PROJECT_ROOT/"annsrcs").isDir){
   throw new RuntimeException("Annotations directory not found, possibly ammonite calls this from a wrong place: "+(PROJECT_ROOT/"annsrcs"))
 }
 
-lazy val ATLAS_PROD = Option(System.getenv.get("ATLAS_PROD")).map(Path(_)).filter(_.isDir) match {
-  case Some(path)
-    => path
-  case None
-    => {
-      throw new RuntimeException("export $ATLAS_PROD as an environment variable")
-      null
-    }
-}
 
 lazy val PATH_BIOENTITY_PROPERTIES = Option(System.getenv.get("PATH_BIOENTITY_PROPERTIES")).map(Path(_)).filter(_.isDir) match {
   case Some(path)
