@@ -116,6 +116,22 @@ def validateAttributesPresentInBioMart(tasks: Seq[Tasks.BioMartTask]) :Either[It
   }
 }
 
+@main
+def simplyValidate() = {
+  val tasksToValidate = Tasks.allTasks
+  validate(tasksToValidate) match {
+    case Right(_)
+      => {
+      Log.log(s"Validated ${tasksToValidate.size} tasks")
+    }
+    case Left(err)
+    => {
+      Log.err(err)
+      1
+    }
+  }
+}
+
 def performBioMartTasks(tasks: Seq[Tasks.BioMartTask]) = {
   val tasksToComplete = tasks.filter(!_.seemsDone)
   if(tasksToComplete.size < tasks.size) {
