@@ -33,16 +33,29 @@ lazy val alternativeToCanonicalGoTermMapping = {
   }.toMap
 }
 
+/**
+  * Default paths for annotation sources, within the project.
+  * If you wish to override them, set the env var ANNOTATION_SOURCES
+  * to a list of paths separated by colon (:). This is useful to
+  * run the analysis for a single organism.
+  */
 val annsrcsPath = PROJECT_ROOT/"annsrcs"/"ensembl"
 val wbpsAnnsrcsPath = PROJECT_ROOT/"annsrcs"/"wbps"
 
+lazy val ANNOTATION_SOURCES: Seq[Path] = Option(System.getenv.get("ANNOTATION_SOURCES"))
+  .map(_.split(":").map(Path(_)).filter(exists).filter(_.isDir))
+match {
+  case Some(paths) => ((paths.map(ls! _).flatten) ++ (List())).toList
+  case None => ((ls! wbpsAnnsrcsPath) ++ (ls! annsrcsPath))
+}
+
 def annotationSources: Seq[Path] =
-  ((ls! wbpsAnnsrcsPath) ++ (ls! annsrcsPath))
+  ANNOTATION_SOURCES
   .filter{ case path =>
     path.isFile && path.segments.last.matches("[a-z]+_[a-z]+")
   }
 
-/*
+/**
  EXPERIMENT_SOURCES should be defined as an environment variable as a list of
  colon (:) delimited paths where one would expect to find experiment directories
 
