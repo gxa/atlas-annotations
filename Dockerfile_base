@@ -1,4 +1,3 @@
 FROM lolhens/ammonite:latest
 
 RUN apt-get update -y && apt-get install -y git
-RUN mv /usr/local/bin/* /usr/bin/
