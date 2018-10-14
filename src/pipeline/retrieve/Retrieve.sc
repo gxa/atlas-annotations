@@ -127,7 +127,7 @@ def simplyValidate() = {
     case Left(err)
     => {
       Log.err(err)
-      1
+      System.exit(1)
     }
   }
 }
