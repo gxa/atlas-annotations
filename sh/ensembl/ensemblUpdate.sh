@@ -16,7 +16,7 @@ NEW_ENSEMBL_REL=$1
 NEW_ENSEMBLGENOMES_REL=$2
 NEW_WBPS_REL=$3
 
-PATH_BIOENTITY_PROPERTIES=${PATH_BIOENTITY_PROPERTIES:-$ATLAS_PROD/bioentity_properties}
+export PATH_BIOENTITY_PROPERTIES=${PATH_BIOENTITY_PROPERTIES:-$ATLAS_PROD/bioentity_properties}
 
 function symlinkAndArchive() {
     # This method is used to update the symbolic link from the current bioentity property placeholder
