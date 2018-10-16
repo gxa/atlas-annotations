@@ -1,5 +1,5 @@
 software.name=metazoa
-software.version=39
+software.version=41
 url=http://metazoa.ensembl.org/biomart/martservice?
 organism=drosophila melanogaster
 databaseName=metazoa

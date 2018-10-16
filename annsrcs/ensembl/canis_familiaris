@@ -1,5 +1,5 @@
 software.name=ensembl
-software.version=92
+software.version=94
 url=http://www.ensembl.org/biomart/martservice?
 organism=canis familiaris
 databaseName=ensembl
