@@ -8,6 +8,9 @@ It also stores the config of Atlas properties per species name and which public 
 src - only java and [Ammonite](http://www.lihaoyi.com/Ammonite/)
 ensemblUpdate.sh - various bash utilities,mysql, environment variable $ATLAS_PROD (see util/create_test_env.sh to work with this script)
 
+We are in the process of detaching this from our direct filesystem dependencies. As such, the use of $ATLAS_PROD is being replaced
+everywhere to point more specificly to the exact needs of each script.
+
 ### Entry points
 
 `sh/ensembl/ensemblUpdate.sh`
@@ -15,6 +18,11 @@ the entry point to the annotations update process
 
 `sh/atlas_species.sh`
 Regenerate the species file based on annotation sources config
+
+`amm -s src/pipeline/retrieve/Retrieve.sc`
+Runs only the BioMart mapping verification for defined organisms (depends on the organisms file inside either
+`annsrc` or the overriding `$ANNOTATION_SOURCES` path). These tests are automated in our internal Jenkins setup (http://193.62.52.166:30752/jenkins)
+under the `Ensembl Update` tab.
 
 ### Structure
 
