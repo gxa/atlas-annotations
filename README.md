@@ -1,8 +1,10 @@
-# atlas-annotations
+# Atlas Annotations (v1.0.0)
 
 
 This is a repository for scripts that we use for retrieving annotations used by Atlas Solr searches and more.
 It also stores the config of Atlas properties per species name and which public BioMart database we retrieve it from.
+
+Version 1.0.0 was used for the August/September 2018 Atlas (bulk and single cell) releases.
 
 ### Dependencies
 src - only java and [Ammonite](http://www.lihaoyi.com/Ammonite/)
