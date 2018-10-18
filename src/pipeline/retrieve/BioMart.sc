@@ -129,6 +129,8 @@ Right(Attribute("ensembl_gene_id", "Ensembl Gene ID/ Ensembl Stable ID of the Ge
 */
 def lookupAttributes(annotationSource:AnnotationSource) = {
   attributesRequest(annotationSource)
+    // TODO handle errors of the type:
+    // Problem retrieving attributes for dataset oglumaepatula_eg_gene in schema , check your parameters
   .right.flatMap {case request =>
     Try(request.asString)
     .filter {case response => !response.isError}
