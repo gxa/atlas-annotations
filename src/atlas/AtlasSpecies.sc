@@ -49,7 +49,7 @@ object AtlasSpeciesFactory {
           "metazoa" -> List(("Ensembl Genomes", "https://metazoa.ensembl.org/")),
           "fungi" -> List(("Ensembl Genomes", "https://fungi.ensembl.org/")),
           "parasite" -> List(("Wormbase ParaSite", "https://parasite.wormbase.org/")),
-          "plants" -> List(("Gramene", "http://ensembl.gramene.org/"),("Ensembl Genomes", "https://plants.ensembl.org/")),
+          "plants" -> List(("Gramene", "https://ensembl.gramene.org/"),("Ensembl Genomes", "https://plants.ensembl.org/")),
           "protists" -> List(("Ensembl Genomes", "https://protists.ensembl.org/"))
         )
       )
