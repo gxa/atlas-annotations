@@ -41,8 +41,7 @@ object AtlasSpeciesFactory {
         "fungi" -> "fungi",
         "parasite" -> "animals",
         "plants" -> "plants",
-        "protists" -> "protists",
-        "bacteria" -> "bacteria")
+        "protists" -> "protists")
 
   val resourcesMap =
     Map("genome_browser" ->
@@ -51,8 +50,7 @@ object AtlasSpeciesFactory {
           "fungi" -> List(("Ensembl Genomes", "https://fungi.ensembl.org/")),
           "parasite" -> List(("Wormbase ParaSite", "https://parasite.wormbase.org/")),
           "plants" -> List(("Gramene", "https://ensembl.gramene.org/"),("Ensembl Genomes", "https://plants.ensembl.org/")),
-          "protists" -> List(("Ensembl Genomes", "https://protists.ensembl.org/")),
-          "bacteria" -> List(("Ensembl Genomes", "https://bacteria.ensembl.org/"))
+          "protists" -> List(("Ensembl Genomes", "https://protists.ensembl.org/"))
         )
       )
 
