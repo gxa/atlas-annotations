@@ -1,0 +1,65 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<configuration experimentType="microarray_1colour_mrna_differential" r_data="1">
+    <analytics>
+        <array_design>A-AFFY-33</array_design>
+        <assay_groups>
+            <assay_group id="g1" label="severe Alzheimer's disease">
+                <assay>Severe 701</assay>
+                <assay>Severe 807</assay>
+                <assay>Severe 819</assay>
+                <assay>Severe 867</assay>
+                <assay>Severe 1036</assay>
+                <assay>Severe 723</assay>
+                <assay>Severe 872</assay>
+            </assay_group>
+            <assay_group id="g2" label="normal">
+                <assay>Control 1008</assay>
+                <assay>Control  976</assay>
+                <assay>Control 1039</assay>
+                <assay>Control 1018</assay>
+                <assay>Control 1003</assay>
+                <assay>Control 1040</assay>
+                <assay>Control 1015</assay>
+                <assay>Control 1012</assay>
+                <assay>Control 1030</assay>
+            </assay_group>
+            <assay_group id="g3" label="moderate Alzheimer's disease">
+                <assay>Moderate 1020</assay>
+                <assay>Moderate 826</assay>
+                <assay>Moderate 832</assay>
+                <assay>Moderate 1025</assay>
+                <assay>Moderate 965</assay>
+                <assay>Moderate 1031</assay>
+                <assay>Moderate 1037</assay>
+                <assay>Moderate 856</assay>
+            </assay_group>
+            <assay_group id="g4" label="incipient Alzheimer's disease">
+                <assay>Incipient 715</assay>
+                <assay>Incipient 1019</assay>
+                <assay>Incipient 1043</assay>
+                <assay>Incipient 720</assay>
+                <assay>Incipient 1029</assay>
+                <assay>Incipient 1034</assay>
+                <assay>Incipient 994</assay>
+            </assay_group>
+        </assay_groups>
+        <contrasts>
+            <contrast id="g2_g1" cttv_primary="1">
+                <name>'severe Alzheimer's disease' vs 'normal'</name>
+                <reference_assay_group>g2</reference_assay_group>
+                <test_assay_group>g1</test_assay_group>
+            </contrast>
+            <contrast id="g2_g3" cttv_primary="1">
+                <name>'moderate Alzheimer's disease' vs 'normal'</name>
+                <reference_assay_group>g2</reference_assay_group>
+                <test_assay_group>g3</test_assay_group>
+            </contrast>
+            <contrast id="g2_g4" cttv_primary="1">
+                <name>'incipient Alzheimer's disease' vs 'normal'</name>
+                <reference_assay_group>g2</reference_assay_group>
+                <test_assay_group>g4</test_assay_group>
+            </contrast>
+        </contrasts>
+    </analytics>
+</configuration>

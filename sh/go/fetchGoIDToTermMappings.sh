@@ -1,9 +1,15 @@
-#!/bin/bash
+#!/usr/bin/env bash
 # This script retrieves the latest mapping between GO ids and terms
 # Author: rpetry@ebi.ac.uk, wbazant@ebi.ac.uk
 set -euo pipefail
+
 PROJECT_ROOT=`dirname $0`/../..
 export JAVA_OPTS=-Xmx3000M
+
+# To avoid using the depths functionality, set env var $GET_GO_DEPTHS to something different to "yes".
+GET_GO_DEPTHS=${GET_GO_DEPTHS:-"yes"}
+USE_EXITING_ONTOLOGY_FILES=${USE_EXISTING_ONTOLOGY_FILES:-"no"}
+
 IFS="
 "
 outputDir=$1
@@ -13,8 +19,10 @@ if [[ -z "$outputDir" ]]; then
 fi
 
 echo "Fetching GO and PO owl files"
-curl -s "http://geneontology.org/ontology/go.owl" > $outputDir/go.owl
-curl -s "http://palea.cgrb.oregonstate.edu/viewsvn/Poc/tags/live/plant_ontology.owl?view=co" > $outputDir/po.owl
+if [ $USE_EXISTING_ONTOLOGY_FILES == "no" ]; then
+   curl -s "http://geneontology.org/ontology/go.owl" > $outputDir/go.owl
+   curl -s "http://palea.cgrb.oregonstate.edu/viewsvn/Poc/tags/live/plant_ontology.owl?view=co" > $outputDir/po.owl
+fi
 
 echo "Extracting GO id -> term"
 amm -s $PROJECT_ROOT/src/go/PropertiesFromOwlFile.sc terms $outputDir/go.owl \
@@ -62,7 +70,13 @@ from
 group by go_id, ancestor_id;" | sqlplus goselect/selectgo@goapro | grep '^GO:'  | sort -t$'\t' -rk2,2  | awk -F"\t" '{ print $1"\t"$2+1 }' | sort -buk1,1
 }
 
-get_ontology_id2Depth_mappings > $outputDir/goIDToDepth.tsv
+if [ $GET_GO_DEPTHS == "yes" ]; then
+  get_ontology_id2Depth_mappings > $outputDir/goIDToDepth.tsv
+else
+  # write file with just zero depths
+  echo "As requested, ignoring GO depths and writing dummy file with all depths 0 based on $outputDir/goIDToTerm.tsv ."
+  awk -F'\t' '{ print $1"\t0" }' $outputDir/goIDToTerm.tsv > $outputDir/goIDToDepth.tsv
+fi
 
 
 # Append Plant Ontology terms at the end of the Gene Ontology file (Ensembl provides Plant Ontology (PO) and Gene Ontology (GO) terms - as GO terms)

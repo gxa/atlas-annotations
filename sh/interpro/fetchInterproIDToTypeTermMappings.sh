@@ -1,3 +1,5 @@
+#!/usr/bin/env bash
+
 # This script retrieves the latest mapping between Interpro ids and their types (family/domain) and terms
 # Author: rpetry@ebi.ac.uk
 PROJECT_ROOT=`dirname $0`/../..
@@ -8,8 +10,10 @@ if [[ -z "$outputDir" ]]; then
     exit 1
 fi
 
-curl -s ftp://ftp.ebi.ac.uk/pub/databases/interpro/62.0/interpro.xml.gz | zcat > $outputDir/interpro.xml
-curl -s ftp://ftp.ebi.ac.uk/pub/databases/interpro/62.0/interpro.dtd > $outputDir/interpro.dtd
+INTERPRO_VERSION=${INTERPRO_VERSION:-"62.0"}
+
+curl -s ftp://ftp.ebi.ac.uk/pub/databases/interpro/$INTERPRO_VERSION/interpro.xml.gz | zcat > $outputDir/interpro.xml
+curl -s ftp://ftp.ebi.ac.uk/pub/databases/interpro/$INTERPRO_VERSION/interpro.dtd > $outputDir/interpro.dtd
 
 pushd $PROJECT_ROOT
 echo "Parse the file we obtained from Interpro's FTP site"

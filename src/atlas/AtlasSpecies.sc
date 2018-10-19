@@ -1,14 +1,10 @@
 import $ivy.`org.json4s:json4s-native_2.12:3.5.0`
-import org.json4s._
 import org.json4s.native.JsonMethods._
 import org.json4s.JsonDSL._
 import $file.^.property.AnnotationSource
 import AnnotationSource.AnnotationSource
 import $file.^.Directories
 import $file.^.util.Combinators
-import java.nio.file.{Paths, Files}
-import java.nio.charset.StandardCharsets
-import ammonite.ops._
 
 case class AtlasSpecies(species: String, defaultQueryFactorType: String, kingdom: String, resources: List[(String, List[(String, String)])]) {
   val json =
@@ -49,7 +45,7 @@ object AtlasSpeciesFactory {
           "metazoa" -> List(("Ensembl Genomes", "https://metazoa.ensembl.org/")),
           "fungi" -> List(("Ensembl Genomes", "https://fungi.ensembl.org/")),
           "parasite" -> List(("Wormbase ParaSite", "https://parasite.wormbase.org/")),
-          "plants" -> List(("Gramene", "https://ensembl.gramene.org/"),("Ensembl Genomes", "https://plants.ensembl.org/")),
+          "plants" -> List(("Gramene", "http://ensembl.gramene.org/"),("Ensembl Genomes", "https://plants.ensembl.org/")),
           "protists" -> List(("Ensembl Genomes", "https://protists.ensembl.org/"))
         )
       )
