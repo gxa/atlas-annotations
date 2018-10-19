@@ -37,7 +37,14 @@ lazy val alternativeToCanonicalGoTermMapping = {
   * Default paths for annotation sources, within the project.
   * If you wish to override them, set the env var ANNOTATION_SOURCES
   * to a list of paths separated by colon (:). This is useful to
-  * run the analysis for a single organism.
+  * run the analysis for a single organism. For instance, if you copy
+  * cp annsrcs/ensembl/homo_sapiens my_directory/ensembl/homo_sapiens
+  * cp annsrcs/wpbs/c_elegans my_directory/wpbs_v2/c_elegans
+  * and then setup:
+  * export ANNOTATION_SOURCES=my_directory/ensembl:my_directory/wpbs_v2
+  * and then run the code, it will only run for those organisms.
+  * You could of course add multiple organisms to a single directory and give it without :
+  * to ANNOTATION_SOURCES.
   */
 val annsrcsPath = PROJECT_ROOT/"annsrcs"/"ensembl"
 val wbpsAnnsrcsPath = PROJECT_ROOT/"annsrcs"/"wbps"
