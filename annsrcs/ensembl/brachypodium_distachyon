@@ -1,5 +1,5 @@
 software.name=plants
-software.version=39
+software.version=41
 url=http://plants.ensembl.org/biomart/martservice?
 organism=brachypodium distachyon
 databaseName=plants
@@ -15,8 +15,6 @@ property.enstranscript=ensembl_transcript_id
 property.entrezgene=entrezgene
 property.go=go_id
 property.goterm=name_1006
-property.po=po_id
-property.poterm=po_name_1006
 property.interpro=interpro
 property.interproterm=interpro_description
 property.refseq=refseq_peptide
