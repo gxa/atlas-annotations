@@ -34,7 +34,7 @@ while read -r organism gtf; do
         mkdir -p ${gtfsDir}/${organism}
         rm -rf ${gtfsDir}/${organism}/*
 
-        curl $gtf | gunzip -c > $localGtf
+        curl -sS $gtf | gunzip -c > $localGtf
         $(dirname ${BASH_SOURCE[0]})/gtf2gff3.pl $localGtf > $localGff3
     fi
 done < $gxaRefs
