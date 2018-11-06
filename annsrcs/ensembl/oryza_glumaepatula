@@ -1,10 +1,10 @@
 software.name=plants
-software.version=39
+software.version=41
 url=http://plants.ensembl.org/biomart/martservice?
 organism=oryza glumaepatula
 databaseName=plants
-datasetName=oglumaepatula_eg_gene
-mySqlDbName=oryza_glumaepatula
+datasetName=oglumipatula_eg_gene
+mySqlDbName=oryza_glumipatula
 mySqlDbUrl=mysql-eg-mirror.ebi.ac.uk:4157
 types=ensgene,enstranscript,ensprotein
 property.gene_biotype=gene_biotype

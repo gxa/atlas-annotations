@@ -10,12 +10,12 @@ import $file.^.^.property.AtlasProperty
 
 def request(databaseName: String,properties: Map[String, String]) : HttpRequest = {
   val base = databaseName match {
-    case "metazoa" => "http://metazoa.ensembl.org"
-    case "plants" => "http://plants.ensembl.org"
-    case "fungi" => "http://fungi.ensembl.org"
-    case "parasite" => "http://parasite.wormbase.org"
-    case "protists" => "http://protists.ensembl.org"
-    case _ => "http://www.ensembl.org"
+    case "metazoa" => "https://metazoa.ensembl.org"
+    case "plants" => "https://plants.ensembl.org"
+    case "fungi" => "https://fungi.ensembl.org"
+    case "parasite" => "https://parasite.wormbase.org"
+    case "protists" => "https://protists.ensembl.org"
+    case _ => "https://www.ensembl.org"
   }
   Http(base+"/biomart/martservice").params(properties).timeout(connTimeoutMs = 5000, readTimeoutMs = 1000000)
 }
@@ -129,6 +129,8 @@ Right(Attribute("ensembl_gene_id", "Ensembl Gene ID/ Ensembl Stable ID of the Ge
 */
 def lookupAttributes(annotationSource:AnnotationSource) = {
   attributesRequest(annotationSource)
+    // TODO handle errors of the type:
+    // Problem retrieving attributes for dataset oglumaepatula_eg_gene in schema , check your parameters
   .right.flatMap {case request =>
     Try(request.asString)
     .filter {case response => !response.isError}

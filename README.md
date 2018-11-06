@@ -1,14 +1,17 @@
-# Atlas Annotations (v1.0.0)
+# Atlas Annotations (v1.1.0)
 
 
 This is a repository for scripts that we use for retrieving annotations used by Atlas Solr searches and more.
 It also stores the config of Atlas properties per species name and which public BioMart database we retrieve it from.
 
-Version 1.0.0 was used for the August/September 2018 Atlas (bulk and single cell) releases.
+Version 1.1.0 was used for the November 2018 Atlas (bulk and single cell) releases.
 
 ### Dependencies
 src - only java and [Ammonite](http://www.lihaoyi.com/Ammonite/)
 ensemblUpdate.sh - various bash utilities,mysql, environment variable $ATLAS_PROD (see util/create_test_env.sh to work with this script)
+
+We are in the process of detaching this from our direct filesystem dependencies. As such, the use of $ATLAS_PROD is being replaced
+everywhere to point more specificly to the exact needs of each script.
 
 ### Entry points
 
@@ -17,6 +20,11 @@ the entry point to the annotations update process
 
 `sh/atlas_species.sh`
 Regenerate the species file based on annotation sources config
+
+`amm -s src/pipeline/retrieve/Retrieve.sc`
+Runs only the BioMart mapping verification for defined organisms (depends on the organisms file inside either
+`annsrc` or the overriding `$ANNOTATION_SOURCES` path). These tests are automated in our internal Jenkins setup
+under the `Ensembl Update` tab.
 
 ### Structure
 

@@ -2,3 +2,4 @@ lib/*
 log/*
 */bioentity_properties/*
 *.swp
+.idea/*
