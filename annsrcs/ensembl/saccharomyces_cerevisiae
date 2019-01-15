@@ -18,6 +18,6 @@ property.goterm=name_1006
 property.interpro=interpro
 property.interproterm=interpro_description
 property.uniprot=uniprotswissprot
-property.symbol=ensembl_gene_id
+property.symbol=external_gene_name
 arrayDesign.A-AFFY-27=affy_yg_s98
 arrayDesign.A-AFFY-47=affy_yeast_2
