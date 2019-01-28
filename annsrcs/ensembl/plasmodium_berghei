@@ -1,5 +1,5 @@
 software.name=protists
-software.version=41
+software.version=42
 url=http://protists.ensembl.org/biomart/martservice?
 organism=plasmodium bergheia
 databaseName=protists
