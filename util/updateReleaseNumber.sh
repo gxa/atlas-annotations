@@ -10,9 +10,9 @@ function update {
   find -X $dir -type f | xargs grep -l $filterPhrase | xargs perl -pi -e $updateCommand
 }
 
-if [ $# -lt 3 ]; then
+if [ $# -lt 4 ]; then
   echo "Usage: $0 ENSEMBL_RELNUM ENSEMBLGENOMES_RELNUM WBPS_RELNUM ENSEMBL_PROTISTS"
-	echo "e.g. $0 86 34 8"
+	echo "e.g. $0 86 34 8 7"
   exit 1;
 fi
 scriptDir=`dirname $0`/../annsrcs
