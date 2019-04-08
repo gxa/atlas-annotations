@@ -1,6 +1,6 @@
 software.name=fungi
 software.version=42
-url=http://fungi.ensembl.org/biomart/martservice?
+url=http://test-fungi.ensembl.org/biomart/martservice?
 organism=schizosaccharomyces pombe
 databaseName=fungi
 datasetName=spombe_eg_gene

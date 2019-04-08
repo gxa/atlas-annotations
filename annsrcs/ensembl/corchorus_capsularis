@@ -1,6 +1,6 @@
 software.name=plants
 software.version=42
-url=http://plants.ensembl.org/biomart/martservice?
+url=http://test-plants.ensembl.org/biomart/martservice?
 organism=corchorus capsularis
 databaseName=plants
 datasetName=ccapsularis_eg_gene
