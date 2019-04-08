@@ -1,5 +1,5 @@
 software.name=plants
-software.version=41
+software.version=42
 url=http://plants.ensembl.org/biomart/martservice?
 organism=oryza brachyantha
 databaseName=plants

@@ -10,9 +10,9 @@ function update {
   find -X $dir -type f | xargs grep -l $filterPhrase | xargs perl -pi -e $updateCommand
 }
 
-if [ $# -lt 3 ]; then
-  echo "Usage: $0 ENSEMBL_RELNUM ENSEMBLGENOMES_RELNUM WBPS_RELNUM"
-	echo "e.g. $0 86 34 8"
+if [ $# -lt 4 ]; then
+  echo "Usage: $0 ENSEMBL_RELNUM ENSEMBLGENOMES_RELNUM WBPS_RELNUM ENSEMBL_PROTISTS"
+	echo "e.g. $0 86 34 8 7"
   exit 1;
 fi
 scriptDir=`dirname $0`/../annsrcs
@@ -25,6 +25,7 @@ else
   update "plants" $2 $scriptDir
   update "metazoa" $2 $scriptDir
   update "fungi" $2 $scriptDir
+  update "protists" $4 $scriptDir
   update "parasite" $3 $scriptDir
-  git commit $scriptDir -m "Update release numbers- Ensembl $1 EnsemblGenomes $2 Wormbase $3"
+  git commit $scriptDir -m "Update release numbers- Ensembl $1 EnsemblGenomes $2 E!Protists $4 Wormbase $3"
 fi
