@@ -1,5 +1,5 @@
 software.name=protists
-software.version=42
+software.version=43
 url=http://protists.ensembl.org/biomart/martservice?
 organism=dictyostelium discoideum
 databaseName=protists
