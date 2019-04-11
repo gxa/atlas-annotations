@@ -1,6 +1,6 @@
 software.name=ensembl
 software.version=95
-url=http://test.ensembl.org/biomart/martservice?
+url=http://www.ensembl.org/biomart/martservice?
 organism=gorilla gorilla
 databaseName=ensembl
 datasetName=ggorilla_gene_ensembl

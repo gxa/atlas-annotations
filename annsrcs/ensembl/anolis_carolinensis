@@ -1,6 +1,6 @@
 software.name=ensembl
 software.version=95
-url=http://test.ensembl.org/biomart/martservice?
+url=http://www.ensembl.org/biomart/martservice?
 organism=anolis carolinensis
 databaseName=ensembl
 datasetName=acarolinensis_gene_ensembl
@@ -27,3 +27,4 @@ property.ortholog=dnovemcinctus_homolog_ensembl_gene,cintestinalis_homolog_ensem
 property.refseq=refseq_peptide
 property.symbol=external_gene_name
 property.uniprot=uniprotsptrembl,uniprotswissprot
+

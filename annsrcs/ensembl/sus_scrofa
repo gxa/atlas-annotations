@@ -1,6 +1,6 @@
 software.name=ensembl
 software.version=95
-url=http://test.ensembl.org/biomart/martservice?
+url=http://www.ensembl.org/biomart/martservice?
 organism=sus scrofa
 databaseName=ensembl
 datasetName=sscrofa_gene_ensembl

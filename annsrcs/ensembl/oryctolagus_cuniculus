@@ -1,6 +1,6 @@
 software.name=ensembl
 software.version=95
-url=http://test.ensembl.org/biomart/martservice?
+url=http://www.ensembl.org/biomart/martservice?
 organism=oryctolagus cuniculus
 databaseName=ensembl
 datasetName=ocuniculus_gene_ensembl

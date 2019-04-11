@@ -1,6 +1,6 @@
 software.name=protists
 software.version=42
-url=http://test-protists.ensembl.org/biomart/martservice?
+url=http://protists.ensembl.org/biomart/martservice?
 organism=plasmodium bergheia
 databaseName=protists
 datasetName=pberghei_eg_gene
