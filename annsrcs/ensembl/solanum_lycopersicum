@@ -1,5 +1,5 @@
 software.name=plants
-software.version=43
+software.version=42
 url=http://test-plants.ensembl.org/biomart/martservice?
 organism=solanum lycopersicum
 databaseName=plants
