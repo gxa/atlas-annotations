@@ -1,11 +1,11 @@
 software.name=plants
-software.version=42
+software.version=43
 url=http://plants.ensembl.org/biomart/martservice?
 organism=cyanidioschyzon merolae
 databaseName=plants
 datasetName=cmerolae_eg_gene
 mySqlDbName=cyanidioschyzon_merolae
-mySqlDbUrl=mysql-eg-mirror.ebi.ac.uk:4157
+mySqlDbUrl=mysql-ens-mirror-3:4275
 types=ensgene,enstranscript,ensprotein
 property.gene_biotype=gene_biotype
 property.description=description

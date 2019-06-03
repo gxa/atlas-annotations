@@ -1,11 +1,11 @@
 software.name=plants
-software.version=42
+software.version=43
 url=http://plants.ensembl.org/biomart/martservice?
 organism=theobroma cacao
 databaseName=plants
 datasetName=tcacao_eg_gene
 mySqlDbName=theobroma_cacao
-mySqlDbUrl=mysql-eg-mirror.ebi.ac.uk:4157
+mySqlDbUrl=mysql-ens-mirror-3:4275
 types=ensgene,enstranscript,ensprotein
 property.gene_biotype=gene_biotype
 property.description=description

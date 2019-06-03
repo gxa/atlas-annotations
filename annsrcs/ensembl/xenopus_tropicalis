@@ -1,11 +1,11 @@
 software.name=ensembl
-software.version=95
+software.version=96
 url=http://www.ensembl.org/biomart/martservice?
 organism=xenopus tropicalis
 databaseName=ensembl
 datasetName=xtropicalis_gene_ensembl
 mySqlDbName=xenopus_tropicalis
-mySqlDbUrl=ensembldb.ensembl.org:5306
+mySqlDbUrl=mysql-ens-mirror-1:4240
 types=ensgene,enstranscript,ensprotein
 property.gene_biotype=gene_biotype
 property.description=description
@@ -27,4 +27,3 @@ property.refseq=refseq_peptide
 property.symbol=external_gene_name
 property.uniprot=uniprotsptrembl,uniprotswissprot
 arrayDesign.A-AFFY-154=affy_x_tropicalis
-

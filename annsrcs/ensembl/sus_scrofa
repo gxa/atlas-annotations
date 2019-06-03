@@ -1,11 +1,11 @@
 software.name=ensembl
-software.version=95
+software.version=96
 url=http://www.ensembl.org/biomart/martservice?
 organism=sus scrofa
 databaseName=ensembl
 datasetName=sscrofa_gene_ensembl
 mySqlDbName=sus_scrofa
-mySqlDbUrl=ensembldb.ensembl.org:5306
+mySqlDbUrl=mysql-ens-mirror-1:4240
 types=ensgene,enstranscript,ensprotein
 property.gene_biotype=gene_biotype
 property.description=description

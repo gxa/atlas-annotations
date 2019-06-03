@@ -11,7 +11,7 @@ function fetchGeneSynonyms {
     annotator=$6    # This is either ensembl or wbps
 
     if [[ $annotator =~ ensembl ]]; then
-        dbUser=anonymous
+        dbUser=ensro
     elif [[ $annotator =~ wbps ]]; then
         dbUser=ensro
     else
