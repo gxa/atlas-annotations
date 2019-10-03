@@ -27,4 +27,3 @@ property.ortholog=acarolinensis_homolog_ensembl_gene,dnovemcinctus_homolog_ensem
 property.refseq=refseq_mrna,refseq_peptide
 property.symbol=external_gene_name
 property.uniprot=uniprotswissprot
-arrayDesign.A-AFFY-149=affy_canine_2
