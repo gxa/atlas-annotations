@@ -7,7 +7,7 @@ function update {
   updateCommand="s|software.version=\d+$|software.version=${2}|"
   dir=$3
 
-  find -X $dir -type f | xargs grep -l $filterPhrase | xargs perl -pi -e $updateCommand
+   find $dir -type f -exec grep -l $filterPhrase {} \; | xargs perl -pi -e $updateCommand  
 }
 
 if [ $# -lt 4 ]; then
@@ -17,7 +17,7 @@ if [ $# -lt 4 ]; then
 fi
 scriptDir=`dirname $0`/../annsrcs
 
-if [$(git diff --name-only --cached | wc -l ) != 0 ] ; then
+if [ $(git diff --name-only --cached | wc -l ) != 0 ] ; then
  echo "Dirty worktree: "
  git diff --name-only --cached
 else
