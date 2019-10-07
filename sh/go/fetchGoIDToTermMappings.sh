@@ -18,18 +18,12 @@ if [[ -z "$outputDir" ]]; then
     exit 1
 fi
 
+source $PROJECT_ROOT/sh/util_functions.sh
+
 echo "Fetching GO and PO owl files"
 if [ $USE_EXISTING_ONTOLOGY_FILES == "no" ]; then
-   GO_STATUS=$(curl -s --write-out "%{http_code}" -o $outputDir/go.owl "http://current.geneontology.org/ontology/go.owl")
-   if [ $GO_STATUS -ne 200 ]; then
-        echo "ERROR retrieiving go.owl"
-        exit 1
-    fi
-   PO_STATUS=$(curl -s --write-out "%{http_code}" -o $outputDir/po.owl "http://palea.cgrb.oregonstate.edu/viewsvn/Poc/tags/live/plant_ontology.owl?view=co")
-    if [ $PO_STATUS -ne 200 ]; then
-        echo "ERROR retrieiving po.owl"
-        exit 1
-    fi
+  download_file "http://current.geneontology.org/ontology/go.owl" $outputDir/go.owl
+  download_file "http://palea.cgrb.oregonstate.edu/viewsvn/Poc/tags/live/plant_ontology.owl?view=co" $outputDir/po.owl
 fi
 
 echo "Extracting GO id -> term"
