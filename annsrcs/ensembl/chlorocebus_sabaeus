@@ -15,6 +15,7 @@ property.ensfamily_description=family_description
 property.ensgene=ensembl_gene_id
 property.ensprotein=ensembl_peptide_id
 property.enstranscript=ensembl_transcript_id
+property.entrezgene=entrezgene_id
 property.gene_biotype=gene_biotype
 property.go=go_id
 property.goterm=name_1006
