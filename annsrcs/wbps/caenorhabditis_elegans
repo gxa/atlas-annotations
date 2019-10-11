@@ -24,4 +24,4 @@ property.interproterm=interpro_description
 property.refseq=refseq_mrna,refseq_peptide
 property.symbol=external_gene_id
 property.uniprot=uniprot_sptrembl,uniprot_swissprot_accession
-property.ortholog=mansoprjea36577_gene,dmelanogaster_gene,hsapiens_gene,mmusculus_gene,scerevisiae_gene,drerio_gene
+property.ortholog=scmansprjea36577_gene,dmelanogaster_gene,hsapiens_gene,mmusculus_gene,scerevisiae_gene,drerio_gene
