@@ -9,7 +9,6 @@ databaseName=parasite
 mySqlDbName=caenorhabditis_elegans_prjna13758
 mySqlDbUrl=mysql-ps-intrel.ebi.ac.uk:4480
 types=wbpsgene,wbpstranscript,wbpsprotein
-chromosomeName=I,II,III,IV,V,X,MtDNA
 property.wbpsgene=wbps_gene_id
 property.wbpstranscript=wbps_transcript_id
 property.wbpsprotein=wbps_peptide_id
