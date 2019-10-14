@@ -18,6 +18,7 @@ property.ensprotein=ensembl_peptide_id
 property.enstranscript=ensembl_transcript_id
 property.entrezgene=entrezgene_id
 property.go=go_id
+property.zfin_id=zfin_id_id
 property.goterm=name_1006
 property.hgnc_symbol=hgnc_symbol
 property.interpro=interpro
