@@ -3,6 +3,8 @@
 # Author: rpetry@ebi.ac.uk
 # Note the script uses GNU's extended awk
 
+PROJECT_ROOT=`dirname $0`/../..
+
 outputDir=$1
 if [[ -z "$outputDir" ]]; then
     echo "Usage: $0 outputDir" >&2
@@ -36,6 +38,8 @@ map_uniprot_ids(){
   	done
 }
 
+source $PROJECT_ROOT/sh/util_functions.sh
+
 IFS="
 "
 
@@ -47,15 +51,24 @@ IFS="
 start=`date +%s`
 # Please note that the two files are currently provided manually by Justin Preece from Gramene project
 # we check them in and keep them with source code
-curl -s -X GET "http://plantreactome.gramene.org/download/current/UniProt2PlantReactome_All_Levels.txt" | awk -F"\t" '{print $1"\t"$6"\t"$2"\t"$4}' | sort -k 1,1 > $outputDir/aux.UniProt2PlantReactome
-curl -s -X GET "http://plantreactome.gramene.org/download/current/Ensembl2PlantReactome_All_Levels.txt" | awk -F"\t" '{print $1"\t"$6"\t"$2"\t"$4}' | grep -Ev '^ENST' | sort -k 1,1 > $outputDir/aux.Ensembl2PlantReactome
+download_file "http://plantreactome.gramene.org/download/current/UniProt2PlantReactome_All_Levels.txt" $outputDir/uniprot2plantReactome_all_levels.txt
+awk -F"\t" '{print $1"\t"$6"\t"$2"\t"$4}' $outputDir/uniprot2plantReactome_all_levels.txt | sort -k 1,1 > $outputDir/aux.UniProt2PlantReactome
+rm $outputDir/uniprot2plantReactome_all_levels.txt
+
+download_file "http://plantreactome.gramene.org/download/current/Ensembl2PlantReactome_All_Levels.txt" $outputDir/ensembl2plantReactome_all_levels.txt
+awk -F"\t" '{print $1"\t"$6"\t"$2"\t"$4}' $outputDir/ensembl2plantReactome_all_levels.txt | grep -Ev '^ENST' | sort -k 1,1 > $outputDir/aux.Ensembl2PlantReactome
+rm $outputDir/ensembl2plantReactome_all_levels.txt
 
 #Download the other files
-curl -s -X GET "https://reactome.org/download/current/UniProt2Reactome_All_Levels.txt" | awk -F"\t" '{print $1"\t"$6"\t"$2"\t"$4}' | sort -k 1,1 > $outputDir/aux.UniProt2Reactome
+download_file "https://reactome.org/download/current/UniProt2Reactome_All_Levels.txt" $outputDir/uniprot2Reactome_all_levels.txt
+awk -F"\t" '{print $1"\t"$6"\t"$2"\t"$4}' $outputDir/uniprot2Reactome_all_levels.txt | sort -k 1,1 > $outputDir/aux.UniProt2Reactome
+rm $outputDir/uniprot2Reactome_all_levels.txt
 # Ensembl2Reactome appears to map to pathways a combination of gene and transcript identifiers (I've seen evidence of a gene and its transcript
 # being mapped to the same pathway in separate lines of the same file). Exluding transcript identifers to avoid Solr index (that consumes these files)
 # from being corrupted.
-curl -s -X GET "https://reactome.org/download/current/Ensembl2Reactome_All_Levels.txt" | awk -F"\t" '{print $1"\t"$6"\t"$2"\t"$4}' | grep -Ev '^ENST' | sort -k 1,1 > $outputDir/aux.Ensembl2Reactome
+download_file "https://reactome.org/download/current/Ensembl2Reactome_All_Levels.txt" $outputDir/ensembl2Reactome_all_levels.txt
+awk -F"\t" '{print $1"\t"$6"\t"$2"\t"$4}' $outputDir/ensembl2Reactome_all_levels.txt | grep -Ev '^ENST' | sort -k 1,1 > $outputDir/aux.Ensembl2Reactome
+rm $outputDir/ensembl2Reactome_all_levels.txt
 
 pushd $outputDir
 
@@ -74,7 +87,7 @@ comm -12 <(sort -u aux.Ensembl2Reactome.organisms) <(sort -u aux.Ensembl2PlantRe
 comm -12 <(sort -u aux.UniProt2Reactome.organisms) <(sort -u aux.UniProt2PlantReactome.organisms) | tr '[A-Z]' '[a-z]' | sed 's/\s/_/g' >> aux.PlantSpeciesInReactome
 
 # removing plant species from Reactome files - organism, Reactome pathway accession, Reactome Pathway name from Ensembl2Reactome and UniProt2Reactome
-# The rationale is reactome files for plants gets populated using Ensembl2PlantReactome and UniProt2PlantReactome 
+# The rationale is reactome files for plants gets populated using Ensembl2PlantReactome and UniProt2PlantReactome
 # and we dont need plant experiments coming from Reactome as they have been corrupted for plant experiments
 for file in Ensembl2Reactome UniProt2Reactome; do
 	cat aux.$file.organisms | tr '[A-Z]' '[a-z]' | sed 's/\s/_/g' > aux.$file.organisms.NoPlants
@@ -82,12 +95,12 @@ for file in Ensembl2Reactome UniProt2Reactome; do
     	sed -i '/'$organism'/d' aux.$file
     	sed -i '/'$organism'/d' aux.$file.organisms.NoPlants
   	done
-done  
+done
 
 #columns are meant to be in order: ensembl gene identifier, organism, Reactome pathway accession, Reactome Pathway name
 # Append data retrieved from REACTOME into each of the species-specific files
-# (each file contains the portion of the original data for the species in that file's name) 
-for file in Ensembl2Reactome Ensembl2PlantReactome ;do 	
+# (each file contains the portion of the original data for the species in that file's name)
+for file in Ensembl2Reactome Ensembl2PlantReactome ;do
   	awk -F"\t" '{print $1"\t"$3"\t"$4>>$2".reactome.tsv.tmp"}' aux.$file
 done
 

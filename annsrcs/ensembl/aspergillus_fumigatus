@@ -1,11 +1,11 @@
 software.name=fungi
-software.version=42
+software.version=45
 url=http://fungi.ensembl.org/biomart/martservice?
 organism=aspergillus fumigatus
 databaseName=fungi
 datasetName=afumigatus_eg_gene
 mySqlDbName=aspergillus_fumigatus
-mySqlDbUrl=mysql-eg-mirror.ebi.ac.uk:4157
+mySqlDbUrl=mysql-ens-mirror-3:4275
 types=ensgene,enstranscript,ensprotein
 chromosomeName=1,2,3,4,5,6,7,8
 property.gene_biotype=gene_biotype
