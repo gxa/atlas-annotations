@@ -1,5 +1,5 @@
 software.name=metazoa
-software.version=43
+software.version=45
 url=http://metazoa.ensembl.org/biomart/martservice?
 organism=drosophila melanogaster
 databaseName=metazoa
@@ -14,7 +14,7 @@ property.embl=embl
 property.ensgene=ensembl_gene_id
 property.ensprotein=ensembl_peptide_id
 property.enstranscript=ensembl_transcript_id
-property.entrezgene=entrezgene
+property.entrezgene=entrezgene_id
 property.flybase_gene_id=flybase_gene_id
 property.flybase_transcript_id=flybase_transcript_id
 property.flybasename_transcript=flybasename_transcript

@@ -1,5 +1,5 @@
 software.name=plants
-software.version=43
+software.version=45
 url=http://plants.ensembl.org/biomart/martservice?
 organism=oryza indica
 databaseName=plants
@@ -12,7 +12,7 @@ property.description=description
 property.ensgene=ensembl_gene_id
 property.ensprotein=ensembl_peptide_id
 property.enstranscript=ensembl_transcript_id
-property.entrezgene=entrezgene
+property.entrezgene=entrezgene_id
 property.go=go_id
 property.goterm=name_1006
 property.interpro=interpro
