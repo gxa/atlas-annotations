@@ -94,7 +94,7 @@ if ($help) { usage($commandLine); die; }
 
 #List files in the $indir directory which are like: $species.$bioentity.*.tsv
 opendir (DIR, $indir);
-my @A_fileList = grep { (/$species\.$bioentity\..+?\.t/)} readdir(DIR);
+my @A_fileList = grep { (/$species\.$bioentity\..+?\.tsv$/)} readdir(DIR);
 closedir DIR ;
 
 #Die if no file returned
