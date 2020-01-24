@@ -1,5 +1,5 @@
 software.name=protists
-software.version=45
+software.version=46
 url=http://protists.ensembl.org/biomart/martservice?
 organism=plasmodium falciparum
 databaseName=protists
