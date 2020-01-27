@@ -17,7 +17,6 @@ property.enstranscript=ensembl_transcript_id
 property.entrezgene=entrezgene_id
 property.flybase_gene_id=flybase_gene_id
 property.flybase_transcript_id=flybase_transcript_id
-property.flybasename_transcript=flybasename_transcript
 property.go=go_id
 property.goterm=name_1006
 property.interpro=interpro
