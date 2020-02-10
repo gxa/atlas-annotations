@@ -19,5 +19,3 @@ property.interproterm=interpro_description
 property.symbol=wikigene_name
 property.uniprot=uniprotsptrembl
 property.symbol=external_gene_name
-property.po=po_id
-property.poterm=po_name_1006

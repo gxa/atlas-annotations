@@ -20,5 +20,3 @@ property.symbol=wikigene_name
 property.uniprot=uniprotsptrembl
 property.symbol=external_gene_name
 #chromosomeName=1,2,3,4,5,6,7,8,9,10,11,12
-property.po=po_id
-property.poterm=po_name_1006
