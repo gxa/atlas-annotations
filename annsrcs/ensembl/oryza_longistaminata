@@ -1,5 +1,5 @@
 software.name=plants
-software.version=45
+software.version=46
 url=http://plants.ensembl.org/biomart/martservice?
 organism=oryza longistaminata
 databaseName=plants
