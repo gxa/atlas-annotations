@@ -46,7 +46,7 @@ def main():
         data['efo_url'] = args.efo_url
 
         with open(args.output_dir + '/' + 'release-metadata.json', 'w') as outfile:
-            json.dump(data, outfile, indent=2, sort_keys=False)
+            json.dump(data, outfile, indent=2, sort_keys=True)
             logging.info(args.output_dir + '/' + 'release-metadata.json')
         exit(0)
 
