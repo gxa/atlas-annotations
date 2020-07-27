@@ -1,5 +1,5 @@
 software.name=plants
-software.version=46
+software.version=48
 url=http://plants.ensembl.org/biomart/martservice?
 organism=cucumis sativus
 databaseName=plants
