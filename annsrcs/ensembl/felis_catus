@@ -1,5 +1,5 @@
 software.name=ensembl
-software.version=99
+software.version=104
 url=http://www.ensembl.org/biomart/martservice?
 organism=felis catus
 databaseName=ensembl
