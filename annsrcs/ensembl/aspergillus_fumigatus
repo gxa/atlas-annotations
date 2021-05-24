@@ -17,4 +17,4 @@ property.go=go_id
 property.goterm=name_1006
 property.interpro=interpro
 property.interproterm=interpro_description
-property.symbol=external_gene_name
+
