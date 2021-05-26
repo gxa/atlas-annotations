@@ -17,6 +17,6 @@ property.goterm=name_1006
 property.interpro=interpro
 property.interproterm=interpro_description
 property.symbol=external_gene_name
-property.uniprot=uniprotsptrembl,uniprotswissprot
+property.uniprot=uniprotsptrembl
 property.embl=embl
 property.ortholog=cbriggsae_eg_homolog_ensembl_gene,celegans_eg_homolog_ensembl_gene,cjaponica_eg_homolog_ensembl_gene,cremanei_eg_homolog_ensembl_gene,dmelanogaster_eg_homolog_ensembl_gene,smansoni_eg_homolog_ensembl_gene
