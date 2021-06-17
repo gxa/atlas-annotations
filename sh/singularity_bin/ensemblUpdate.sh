@@ -11,4 +11,4 @@ export SINGULARITYENV_EXPERIMENT_SOURCES=$EXPERIMENT_SOURCES
 
 singularity exec \
   --bind $PATH_BIOENTITY_PROPERTIES,$PROJECT_ROOT \
-  docker://quay.io/ebigxa/ensembl-update-env:amm2.3.8 ensemblUpdate.sh $@
+  docker://quay.io/ebigxa/ensembl-update-env:amm1.1.2 ensemblUpdate.sh $@
