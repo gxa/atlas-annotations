@@ -46,6 +46,7 @@ arrayDesign.A-GEOD-10558=illumina_humanht_12_v4
 arrayDesign.A-GEOD-15207=affy_primeview
 arrayDesign.A-GEOD-16686=affy_hugene_2_0_st_v1
 arrayDesign.A-MEXP-1171=illumina_humanht_12_v3
+arrayDesign.A-MEXP-1773=illumina_humanwg_6_v3
 arrayDesign.A-MEXP-2102=agilent_sureprint_g3_ge_8x60k
 arrayDesign.A-MEXP-2183=agilent_wholegenome_4x44k_v2
 arrayDesign.A-MEXP-2210=illumina_humanht_12_v4
