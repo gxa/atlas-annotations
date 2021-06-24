@@ -57,6 +57,10 @@
   }]
 },
 {
+  "name": "Anoplophora_glabripennis",
+  "defaultQueryFactorType": "TODO"
+},
+{
   "name":"Arabidopsis_lyrata",
   "defaultQueryFactorType":"ORGANISM_PART",
   "kingdom":"plants",
@@ -92,6 +96,16 @@
     "type":"genome_browser",
     "name":"Ensembl Genomes",
     "url":"http://fungi.ensembl.org/Aspergillus_fumigatus"
+  }]
+},
+{
+  "name":"Aspergillus_nidulans",
+  "defaultQueryFactorType":"ORGANISM_PART",
+  "kingdom":"fungi",
+  "resources":[{
+    "type":"genome_browser",
+    "name":"Ensembl Genomes",
+    "url":"http://fungi.ensembl.org/Aspergillus_nidulans"
   }]
 },
 {
@@ -175,6 +189,14 @@
   }]
 },
 {
+  "name":"Caenorhabditis_brenneri",
+  "defaultQueryFactorType":"TODO"
+},
+{
+  "name":"Caenorhabditis_briggsae",
+  "defaultQueryFactorType":"TODO"
+},
+{
   "name":"Caenorhabditis_elegans",
   "defaultQueryFactorType":"DEVELOPMENTAL_STAGE",
   "kingdom":"animals",
@@ -185,6 +207,18 @@
   }]
 },
 {
+  "name":"Caenorhabditis_japonica",
+  "defaultQueryFactorType":"TODO"
+},
+{
+  "name":"Caenorhabditis_remanei",
+  "defaultQueryFactorType":"TODO"
+},
+{
+  "name":"Callithrix_jacchus",
+  "defaultQueryFactorType":"TODO"
+},
+{
   "name":"Canis_familiaris",
   "defaultQueryFactorType":"ORGANISM_PART",
   "kingdom":"animals",
@@ -193,6 +227,10 @@
     "name":"Ensembl",
     "url":"http://www.ensembl.org/Canis_familiaris"
   }]
+},
+{
+  "name":"Chenopodium_quinoa",
+  "defaultQueryFactorType":"TODO"
 },
 {
   "name":"Chlamydomonas_reinhardtii",
@@ -267,6 +305,10 @@
   }]
 },
 {
+  "name":"Cucumis_sativus",
+  "defaultQueryFactorType":"TODO"
+},
+{
   "name":"Cyanidioschyzon_merolae",
   "defaultQueryFactorType":"ORGANISM_PART",
   "kingdom":"plants",
@@ -301,6 +343,14 @@
   }]
 },
 {
+  "name":"Dictyostelium_discoideum",
+  "defaultQueryFactorType":"TODO"
+},
+{
+  "name":"Drosophila_ananassae",
+  "defaultQueryFactorType":"TODO"
+},
+{
   "name":"Drosophila_melanogaster",
   "defaultQueryFactorType":"ORGANISM_PART",
   "kingdom":"animals",
@@ -311,6 +361,26 @@
   }]
 },
 {
+  "name":"Drosophila_mojavensis",
+  "defaultQueryFactorType":"TODO"
+},
+{
+  "name":"Drosophila_pseudoobscura",
+  "defaultQueryFactorType":"TODO"
+},
+{
+  "name":"Drosophila_simulans",
+  "defaultQueryFactorType":"TODO"
+},
+{
+  "name":"Drosophila_virilis",
+  "defaultQueryFactorType":"TODO"
+},
+{
+  "name":"Drosophila_yakuba",
+  "defaultQueryFactorType":"TODO"
+},
+{
   "name":"Equus_caballus",
   "defaultQueryFactorType":"ORGANISM_PART",
   "kingdom":"animals",
@@ -319,6 +389,10 @@
     "name":"Ensembl",
     "url":"http://www.ensembl.org/Equus_caballus"
   }]
+},
+{
+  "name":"Felis_catus",
+  "defaultQueryFactorType":"TODO"
 },
 {
   "name":"Galdieria_sulphuraria",
@@ -707,6 +781,10 @@
   }]
 },
 {
+  "name":"Plasmodium_falciparum",
+  "defaultQueryFactorType":"TODO"
+},
+{
   "name":"Pongo_abelii",
   "defaultQueryFactorType":"ORGANISM_PART",
   "kingdom":"animals",
@@ -763,6 +841,10 @@
     "name":"Ensembl Genomes",
     "url":"http://fungi.ensembl.org/Saccharomyces_cerevisiae"
   }]
+},
+{
+  "name":"Salmo_salar",
+  "defaultQueryFactorType":"TODO"
 },
 {
   "name":"Schistosoma_mansoni",
